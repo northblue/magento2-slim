@@ -1,0 +1,81 @@
+<?php
+    use Magento\Framework\View\Element\Template;
+/** @var Template $block */
+?>
+
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 1000px;height:600px;"></div>
+
+
+<script type="text/javascript">
+    require(['jquery','echarts'],function(jquery,echarts){
+
+        var myChart = echarts.init(document.getElementById('main'));
+
+        option = {
+            legend: {},
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            toolbox: {
+                feature: {
+                    dataView: {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                },
+                top: '20',
+                right:'80',
+            },
+            dataset: <?= $block->getData('dataSet'); ?>,
+            // xAxis: {type: 'category',axisLabel: { interval: 0, rotate: 30 }},
+            // yAxis: [
+            //     {
+            //         type: 'value',
+            //         interval: 100,
+
+            //     },
+            //     {
+            //         type: 'value',
+            //         interval: 1000,
+
+            //     }
+            // ],
+            xAxis: [
+                {type: 'category', gridIndex: 0,axisLabel: {rotate: 30 }},
+                {type: 'category', gridIndex: 1,axisLabel: {rotate: 30 }}
+                    ],
+            yAxis: [
+                {gridIndex: 0},
+                {gridIndex: 1},
+                {gridIndex: 1}
+            ],
+            grid: [
+                {bottom: '55%'},
+                {top: '55%'}
+            ],
+            // Declare several bar series, each will be mapped
+            // to a column of dataset.source by default.
+            series: [
+                {type: 'line'},
+                {type: 'line'},
+                {type: 'line'},
+                {type: 'line'},
+                {type: 'line'},
+                {type: 'line'},
+                {type: 'bar', xAxisIndex: 1, yAxisIndex: 1},
+                {type: 'bar', xAxisIndex: 1, yAxisIndex: 2},
+            ]
+        };
+
+
+        myChart.setOption(option);
+    });
+</script>

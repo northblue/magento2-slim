@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="WebTop_MyDashboard::parent" title="MyDashboard" module="WebTop_MyDashboard" sortOrder="100" resource="WebTop_MyDashboard::parent"/>
+        <add id="WebTop_MyDashboard::index" title="MyDashboard Index" module="WebTop_MyDashboard" sortOrder="10" action="mydashboard/index" resource="WebTop_MyDashboard::index" parent="WebTop_MyDashboard::parent"/>
+		
+    </menu>
+</config>

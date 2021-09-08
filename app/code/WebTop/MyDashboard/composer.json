@@ -1,0 +1,21 @@
+{
+    "name": "webtop/mydashboard",
+    "description": "WebTop MyDashboard",
+    "require": {
+      "php": "~5.6.0|7.0.2|~7.4.6"
+    },
+    "type": "magento2-module",
+    "version": "0.74.0-beta4",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "extra": {
+        "map": [
+            [
+                "*",
+                "WebTop/MyDashboard"
+            ]
+        ]
+    }
+}
